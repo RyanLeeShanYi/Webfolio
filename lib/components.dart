@@ -11,8 +11,8 @@ class StaggeredHeader extends StatelessWidget {
   const StaggeredHeader(
     this.title, {
     this.lineBefore = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +64,8 @@ class GlowImage extends StatelessWidget {
     required this.height,
     required this.shadow,
     this.fit = BoxFit.cover,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   Widget build(BuildContext c) => DecoratedBox(
         decoration: BoxDecoration(
@@ -88,8 +88,8 @@ class ExperienceSection extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.tasks,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -149,8 +149,8 @@ class ProjectCard extends StatelessWidget {
     required this.techLine,
     required this.aspectRatio,
     required this.reverse,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -294,7 +294,7 @@ class ProjectCard extends StatelessWidget {
 
 class SectionHeader extends StatelessWidget {
   final String title;
-  const SectionHeader(this.title, {Key? key}) : super(key: key);
+  const SectionHeader(this.title, {super.key});
   @override
   Widget build(BuildContext c) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -314,7 +314,7 @@ class SectionHeader extends StatelessWidget {
 class NavButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
-  const NavButton(this.label, this.onTap, {Key? key}) : super(key: key);
+  const NavButton(this.label, this.onTap, {super.key});
   @override
   Widget build(BuildContext c) =>
       TextButton(onPressed: onTap, child: Text(label, style: const TextStyle(color: Colors.white)));
@@ -334,8 +334,8 @@ class SocialItem extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.url,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   void _launch() {
     // Opens in a new browser tab
@@ -380,8 +380,8 @@ class EmailButton extends StatelessWidget {
     required this.toAddress,
     required this.label,
     this.accentColor = Colors.cyanAccent,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   void _openEmailDialog(BuildContext context) {
     final subjectCtrl = TextEditingController();

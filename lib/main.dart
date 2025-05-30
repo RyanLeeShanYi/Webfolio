@@ -109,7 +109,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 style: TextStyle(
                                     color: Colors.white70, fontSize: 20)),
                             const SizedBox(height: 8),
-                            const Text('Special Participant',
+                            const Text('Ryan Lee',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 48,
@@ -131,7 +131,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 child: const Text('Check me out'),
                               ),
                               const SizedBox(width: 16),
-                              EmailButton(toAddress: '', label: 'Reach me')
+                              EmailButton(toAddress: 'rleeshanyi@gmail.com', label: 'Reach me')
                             ]),
                             const SizedBox(height: 32),
                             Row(
@@ -140,7 +140,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                                 SocialItem(
                                   icon: FontAwesomeIcons.instagram,
                                   label: 'Instagram',
-                                  url: 'https://www.instagram.com/k.hyeho/',
+                                  url: 'https://www.instagram.com/human._.ryan/',
                                 ),
                                 
                               ],
@@ -163,8 +163,87 @@ class _PortfolioPageState extends State<PortfolioPage> {
                   ),
                 ),
                 // ─── ABOUT ME ─────────────────────────────────────
+                Container(key: _aboutKey),
+               const StaggeredHeader('About Me', lineBefore: true),
+               Padding(
+                 padding:
+                     const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                 child: Row(
+                   children: [
+                     Expanded(
+                       flex: 1,
+                       child: GlowImage(
+                         assetPath: 'lib/assets/about.png',
+                         width: 300,
+                         height: 225,
+                         fit: BoxFit.cover,
+                         shadow: imageShadow,
+                       ),
+                     ),
+                     const SizedBox(width: 24),
+                     Expanded(
+                       flex: 2,
+                       child: const Text(
+                         "Hello I'm Ryan. I like to play sports and I am currently in multiple sports clubs. I love travelling to cold countries and exploring new places.\n\n"
+                         'I am passionate about mathematics and problem solving as an aspiring engineer. I’m currently pursuing my degree in SUTD',
+                         style: TextStyle(
+                             color: Colors.white70, fontSize: 16, height: 1.5),
+                       ),
+                     ),
+                   ],
+                 ),
+               ),
+
                 
                 // ─── EXPERIENCE ──────────────────────────────────────
+                Container(key: _expKey),
+               const StaggeredHeader('Experience', lineBefore: false),
+               Padding(
+                 padding:
+                     const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                 child: Row(
+                   children: [
+                     Expanded(
+                       flex: 1,
+                       child: GlowImage(
+                         assetPath: 'lib/assets/experience.png',
+                         width: 300,
+                         height: 225,
+                         fit: BoxFit.cover,
+                         shadow: imageShadow,
+                       ),
+                     ),
+                     const SizedBox(width: 24),
+                     Expanded(
+                       flex: 2,
+                       child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: const [
+                           ExperienceSection(
+                             title: 'Attractions Operator @ Universal Studios Singapore',
+                             subtitle: 'Part-time | Feb 2024 – Present',
+                             tasks: [
+                               'Developing the software portion of an IOT Module for students to learn the process of connecting health sensors to the cloud and dashboarding.',
+                               'Provide consultation services for Final Year Project students in prototyping.',
+                             ],
+                           ),
+                           SizedBox(
+                             height: 24,
+                           ),
+                           ExperienceSection(
+                             title: 'Robotics Intern @ Weston Robot',
+                             subtitle: 'Internship | Sep 2021 – Feb 2022',
+                             tasks: [
+                               'Developing a mobile application capable of interfacing with in-house robots for diagnostic purposes using Flutter.',
+                             ],
+                           ),
+                         ],
+                       ),
+                     ),
+                   ],
+                 ),
+               ),
+
                 // ─── PROJECTS ────────────────────────────────────────
                 
                 // ─── THE END ─────────────────────────────────────────
@@ -191,19 +270,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
                           SocialItem(
                             icon: FontAwesomeIcons.instagram,
                             label: 'Instagram',
-                            url: 'https://www.instagram.com/k.hyeho/',
+                            url: 'https://www.instagram.com/human._.ryan/',
                           ),
                           SizedBox(width: 16),
                           SocialItem(
                             icon: FontAwesomeIcons.github,
                             label: 'GitHub',
-                            url: 'https://github.com/LoKhyeHe',
+                            url: 'https://github.com/RyanLeeShanYi',
                           ),
                           SizedBox(width: 16),
                           SocialItem(
                             icon: FontAwesomeIcons.linkedin,
                             label: 'LinkedIn',
-                            url: 'https://www.linkedin.com/in/khyehe/',
+                            url: 'https://www.linkedin.com/in/ryan-lee-a84555206?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app/',
                           ),
                         ],
                       ),
@@ -252,3 +331,4 @@ class _PortfolioPageState extends State<PortfolioPage> {
     );   
   }
 }
+
