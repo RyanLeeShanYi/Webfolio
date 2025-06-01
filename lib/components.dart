@@ -11,8 +11,8 @@ class StaggeredHeader extends StatelessWidget {
   const StaggeredHeader(
     this.title, {
     this.lineBefore = false,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +64,8 @@ class GlowImage extends StatelessWidget {
     required this.height,
     required this.shadow,
     this.fit = BoxFit.cover,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext c) => DecoratedBox(
         decoration: BoxDecoration(
@@ -88,8 +88,8 @@ class ExperienceSection extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.tasks,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -123,6 +123,47 @@ class ExperienceSection extends StatelessWidget {
   }
 }
 
+
+class EducationSection extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final List<String> bodyparagraph;
+
+  const EducationSection({
+    required this.title,
+    required this.subtitle,
+    required this.bodyparagraph,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          subtitle,
+          style: const TextStyle(color: Colors.white54),
+        ),
+        const SizedBox(height: 8),
+        if (bodyparagraph.isNotEmpty) ...[
+          for (var t in bodyparagraph) 
+            Text('• $t', style: const TextStyle(color: Colors.white70)),
+        ],
+      ],
+    );
+  }
+}
+
 class ProjectCard extends StatelessWidget {
   /// Path to your asset in pubspec.yaml
   final String imagePath;
@@ -149,8 +190,8 @@ class ProjectCard extends StatelessWidget {
     required this.techLine,
     required this.aspectRatio,
     required this.reverse,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -294,7 +335,7 @@ class ProjectCard extends StatelessWidget {
 
 class SectionHeader extends StatelessWidget {
   final String title;
-  const SectionHeader(this.title, {super.key});
+  const SectionHeader(this.title, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext c) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -314,7 +355,7 @@ class SectionHeader extends StatelessWidget {
 class NavButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
-  const NavButton(this.label, this.onTap, {super.key});
+  const NavButton(this.label, this.onTap, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext c) =>
       TextButton(onPressed: onTap, child: Text(label, style: const TextStyle(color: Colors.white)));
@@ -334,8 +375,8 @@ class SocialItem extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.url,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   void _launch() {
     // Opens in a new browser tab
@@ -380,8 +421,8 @@ class EmailButton extends StatelessWidget {
     required this.toAddress,
     required this.label,
     this.accentColor = Colors.cyanAccent,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   void _openEmailDialog(BuildContext context) {
     final subjectCtrl = TextEditingController();

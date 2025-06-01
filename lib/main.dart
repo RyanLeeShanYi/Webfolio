@@ -38,7 +38,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
   final _scroll = ScrollController();
   final _aboutKey = GlobalKey();
   final _expKey = GlobalKey();
+  final _eduKey = GlobalKey();
   final _projKey = GlobalKey();
+  
 
   void _scrollTo(GlobalKey key) {
     Scrollable.ensureVisible(
@@ -82,6 +84,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                       children: [
                         NavButton('About', () => _scrollTo(_aboutKey)),
                         NavButton('Experience', () => _scrollTo(_expKey)),
+                        NavButton('Education', () => _scrollTo(_eduKey)),
                         NavButton('Projects', () => _scrollTo(_projKey)),
                         const SizedBox(width: 16),
                         IconButton(
@@ -137,14 +140,25 @@ class _PortfolioPageState extends State<PortfolioPage> {
                             Row(
                               mainAxisSize: MainAxisSize.min,
                               children: const [
-                                SocialItem(
-                                  icon: FontAwesomeIcons.instagram,
-                                  label: 'Instagram',
-                                  url: 'https://www.instagram.com/human._.ryan/',
-                                ),
-                                
-                              ],
-                            ),
+                          SocialItem(
+                            icon: FontAwesomeIcons.instagram,
+                            label: 'Instagram',
+                            url: 'https://www.instagram.com/human._.ryan/',
+                          ),
+                          SizedBox(width: 16),
+                          SocialItem(
+                            icon: FontAwesomeIcons.github,
+                            label: 'GitHub',
+                            url: 'https://github.com/RyanLeeShanYi',
+                          ),
+                          SizedBox(width: 16),
+                          SocialItem(
+                            icon: FontAwesomeIcons.linkedin,
+                            label: 'LinkedIn',
+                            url: 'https://www.linkedin.com/in/ryan-lee-a84555206?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app/',
+                          ),
+                        ],
+                      ),
                           ],
                         ),
                       ),
@@ -164,19 +178,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 ),
                 // ─── ABOUT ME ─────────────────────────────────────
                 Container(key: _aboutKey),
-               const StaggeredHeader('About Me', lineBefore: true),
+               const StaggeredHeader('About Me', lineBefore: false),
                Padding(
                  padding:
-                     const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                     const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                  child: Row(
                    children: [
                      Expanded(
-                       flex: 1,
+                       flex: 2,
                        child: GlowImage(
                          assetPath: 'lib/assets/about.png',
-                         width: 300,
-                         height: 225,
-                         fit: BoxFit.cover,
+                         width: 240,
+                         height: 320,
+                         fit: BoxFit.fitWidth,
                          shadow: imageShadow,
                        ),
                      ),
@@ -197,55 +211,121 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 
                 // ─── EXPERIENCE ──────────────────────────────────────
                 Container(key: _expKey),
-               const StaggeredHeader('Experience', lineBefore: false),
-               Padding(
-                 padding:
-                     const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                 child: Row(
-                   children: [
-                     Expanded(
-                       flex: 1,
-                       child: GlowImage(
-                         assetPath: 'lib/assets/experience.png',
-                         width: 300,
-                         height: 225,
-                         fit: BoxFit.cover,
-                         shadow: imageShadow,
-                       ),
-                     ),
-                     const SizedBox(width: 24),
-                     Expanded(
-                       flex: 2,
-                       child: Column(
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                         children: const [
-                           ExperienceSection(
-                             title: 'Attractions Operator @ Universal Studios Singapore',
-                             subtitle: 'Part-time | Feb 2024 – Present',
-                             tasks: [
-                               'Developing the software portion of an IOT Module for students to learn the process of connecting health sensors to the cloud and dashboarding.',
-                               'Provide consultation services for Final Year Project students in prototyping.',
-                             ],
-                           ),
-                           SizedBox(
-                             height: 24,
-                           ),
-                           ExperienceSection(
-                             title: 'Robotics Intern @ Weston Robot',
-                             subtitle: 'Internship | Sep 2021 – Feb 2022',
-                             tasks: [
-                               'Developing a mobile application capable of interfacing with in-house robots for diagnostic purposes using Flutter.',
-                             ],
-                           ),
-                         ],
-                       ),
-                     ),
-                   ],
-                 ),
-               ),
+                              const StaggeredHeader('Experience', lineBefore: true),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: GlowImage(
+                                        assetPath: 'lib/assets/experience.png',
+                                        width: 300,
+                                        height: 225,
+                                        fit: BoxFit.cover,
+                                        shadow: imageShadow,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 30),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: const [
+                                          ExperienceSection(
+                                          title: 'Attractions Operator @ Universal Studios Singapore',
+                                          subtitle: 'Part-time | Feb 2024 – Present',
+                                          tasks: [
+                                            'Managing ride operation, safety checks, and guest boarding with efficiency and attention to detail',
+                                            'Ensuring safe and enjoyable guest experiences through ride operation and crowd control',
+                                                          
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 20,
+                                          ),
+                                          ExperienceSection(
+                                            title: 'Parcel Sorter @ The HR Ecology Pte Ltd',
+                                            subtitle: 'Part-Time | Jan 2020 – Feb 2020',
+                                            tasks: [
+                                              'Worked fast to complete tasks and meet deadlines',
+                                              'Organising inventory systematically for easy access',
+                                              'Attaching identification materials to packages for delivery tracking and sorting'
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 20,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                
+                // ─── Education ────────────────────────────────────────
+                Container(key: _eduKey),
+                const StaggeredHeader('Education', lineBefore: false),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: GlowImage(
+                          assetPath: 'lib/assets/experience.png',
+                          width: 300,
+                          height: 225,
+                          fit: BoxFit.cover,
+                          shadow: imageShadow,
+                        ),
+                      ),
+                      const SizedBox(width: 24),
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            EducationSection(
+                              title: 'Singapore University of Technology and Design',
+                              subtitle: 'Sept 2024 – Present',
+                              bodyparagraph: [
+                                'Bachelor of Engineering in Information Systems Technology and Design',
+                                // Add more tasks/achievements as needed
+                              ],
+                            ),
+                            SizedBox(height: 24),
+                            EducationSection(
+                              title: 'Temasek Junior College',
+                              subtitle: 'Feb 2020 – Dec 2021',
+                              bodyparagraph: [
+                                'Completed GCE A-Levels',
+                                'Subject combination: H2 Further Math, Math, Physics, H1 Economics, GP, PW',
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
 
                 // ─── PROJECTS ────────────────────────────────────────
-                
+                Container(key: _projKey),
+               const SectionHeader('Projects'),
+
+              Center(
+                child: Text(
+                  'Coming Soon',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey, // You can change the color
+                  ),
+                ),
+              ),
+
                 // ─── THE END ─────────────────────────────────────────
                 const SectionHeader('The End'),
                 const Padding(
